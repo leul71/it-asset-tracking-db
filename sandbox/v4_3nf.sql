@@ -110,3 +110,17 @@ VALUES ('LAP001', 1, 1, 1, 1),
        ('PRN002', 2, 2, 2, 6),
        ('MON002', 3, 3, 3, 7),
        ('PHN002', 4, 4, 4, 8);
+
+SELECT a.asset_tag, c.category_name, v.vendor_name,
+       l.building, l.floor,
+       e.employee_name AS assigned_to,
+       d.department_name,
+       m.employee_name AS dept_manager
+FROM v4.assets a
+JOIN      v4.categories  c ON a.category_id = c.category_id
+JOIN      v4.vendors     v ON a.vendor_id = v.vendor_id
+LEFT JOIN v4.locations   l ON a.location_id = l.location_id
+LEFT JOIN v4.employees   e ON a.employee_id = e.employee_id
+LEFT JOIN v4.departments d ON e.department_id = d.department_id
+LEFT JOIN v4.employees   m ON d.manager_id = m.employee_id
+ORDER BY a.asset_tag;
