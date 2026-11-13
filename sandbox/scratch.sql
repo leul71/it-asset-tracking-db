@@ -146,3 +146,5 @@ JOIN v3.vendors v          ON a.vendor_id = v.vendor_id
 LEFT JOIN v3.employees e   ON a.employee_id = e.employee_id
 LEFT JOIN v3.departments d ON e.dept_id = d.dept_id
 ORDER BY a.asset_tag;
+
+`

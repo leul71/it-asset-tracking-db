@@ -124,3 +124,12 @@ LEFT JOIN v4.employees   e ON a.employee_id = e.employee_id
 LEFT JOIN v4.departments d ON e.department_id = d.department_id
 LEFT JOIN v4.employees   m ON d.manager_id = m.employee_id
 ORDER BY a.asset_tag;
+
+UPDATE v4.assets
+SET employee_id = NULL
+WHERE employee_id = 1;
+
+DELETE FROM v4.employees WHERE employee_name = 'John Doe';
+
+SELECT * FROM v4.employees;
+SELECT * FROM v4.assets;
